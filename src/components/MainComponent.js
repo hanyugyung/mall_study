@@ -1,26 +1,21 @@
-import React, {Component} from "react"; 
-import Carousel from 'react-bootstrap/Carousel'
-import axios from 'axios';
-
+import React, { Component } from "react";
+import Carousel from "react-bootstrap/Carousel";
 
 class MainComponent extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
-    this.state={
-    };
+    this.state = {};
   }
 
-  getCarouselImgPath(){
+  getCarouselImgPath() {}
 
-  }
-
-  render(){
+  render() {
     return (
       <Carousel>
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src={require('../img/1.jpg')}
+            src={require("../img/1.jpg")}
             alt="First slide"
           />
           <Carousel.Caption>
@@ -31,7 +26,7 @@ class MainComponent extends Component {
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src={require('../img/2.jpg')}
+            src={require("../img/2.jpg")}
             alt="Third slide"
           />
 
@@ -43,18 +38,20 @@ class MainComponent extends Component {
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src={require('../img/3.jpg')}
+            src={require("../img/3.jpg")}
             alt="Third slide"
           />
 
           <Carousel.Caption>
             <h3>Third slide label</h3>
-            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+            <p>
+              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+            </p>
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
-      );  
-    }
+    );
   }
-  
+}
+
 export default MainComponent;

@@ -8,6 +8,7 @@ import { NavLink } from "react-router-dom";
 class TopMainComponent extends Component {
   constructor(props) {
     super(props);
+    
     this.state = {};
   }
   render() {
@@ -39,7 +40,7 @@ class TopMainComponent extends Component {
           </InputGroup>
           <Nav className="top-main-component-nav">
             <Nav.Item>
-              <Nav.Link as={NavLink} to="/item/outers">
+              <Nav.Link as={NavLink} to="/item/outer">
                 아우터
               </Nav.Link>
             </Nav.Item>

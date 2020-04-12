@@ -22,9 +22,14 @@ class LoginComponent extends Component {
       headers: { "content-type": "application/json" },
     })
       .then((response) => {
-        localStorage.setItem("id", response.data.userId);
-        localStorage.setItem("token", response.data.token);
-        window.location.href = "/";
+        const res = response.data;
+        if(res.rtCode == "A200000") {
+          localStorage.setItem("id", res.rtData.userId);
+          localStorage.setItem("token", res.rtData.token);
+          window.location.href = "/";
+        }else{
+          alert(res.rtMsg);
+        }
       })
       .catch(function (error) {
         alert("internal error occurs!");

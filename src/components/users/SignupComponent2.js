@@ -30,8 +30,12 @@ class SignupComponent2 extends Component {
         headers: { "content-type": "application/json" },
       })
         .then((response) => {
-          alert("success create account!");
-          window.location.href = "/";
+          const res = response.data;
+          if(res.rtCode == "A200000") {
+            window.location.href = "/";
+          }else{
+            alert(res.rtMsg);
+          }
         })
         .catch(function (error) {
           alert("internal error occurs!");

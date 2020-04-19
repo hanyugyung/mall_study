@@ -17,12 +17,12 @@ class SignupComponent extends Component {
     if (!this.checked) {
       alert("이용약관에 동의해주세요.");
     } else {
-      window.location.href = "/account/signup2";
+      window.location.href = "/users/signup2";
     }
   }
   //move to login when disagree button clicked
   moveToLogin() {
-    window.location.href = "/account/login";
+    window.location.href = "/login";
   }
   render() {
     return (

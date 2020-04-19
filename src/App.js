@@ -10,6 +10,7 @@ import SignupComponent2 from "./components/users/SignupComponent2";
 import FooterComponent from "./components/FooterComponent.js";
 import CsComponent from "./components/cs/CsComponent";
 import LoginComponent from "./components/login/LoginComponent";
+import MyPageComponent from "./components/users/MyPageComponent";
 
 //소녀나라 참고
 class App extends Component {
@@ -19,11 +20,11 @@ class App extends Component {
         <Router>
           <HeaderComponent />
           <TopMainComponent />
-
-          <Route path="/account/signup" component={SignupComponent} />
-          <Route path="/account/signup2" component={SignupComponent2} />
+          <Route path="/users/mypage" component={MyPageComponent} />
+          <Route path="/users/signup" component={SignupComponent} />
+          <Route path="/users/signup2" component={SignupComponent2} />
           <Route path="/cs" component={CsComponent} />
-          <Route path="/account/login" component={LoginComponent} />
+          <Route path="/login" component={LoginComponent} />
           <Route exact path="/" component={MainComponent} />
           <Switch>
             <Route path="/item/:type" component={MainComponent} />

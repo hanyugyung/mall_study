@@ -23,6 +23,7 @@ class HeaderComponent extends Component {
           if (response.status === 200) {
             localStorage.removeItem("id");
             localStorage.removeItem("token");
+            localStorage.removeItem("name");
             window.location.href = "/";
           } else {
             alert("LOGOUT EXCEPTION!!!");
@@ -41,6 +42,11 @@ class HeaderComponent extends Component {
         <Container>
           <Nav className="justify-content-end">
             <Nav.Item>
+              <Nav.Link as={NavLink} to="/users/mypage">
+                {localStorage.getItem("name")} 님 안녕하세요!
+              </Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
               <Nav.Link as={NavLink} to="/cs">
                 고객센터
               </Nav.Link>
@@ -58,7 +64,7 @@ class HeaderComponent extends Component {
         <Container>
           <Nav className="justify-content-end">
             <Nav.Item>
-              <Nav.Link as={NavLink} to="/account/signup">
+              <Nav.Link as={NavLink} to="/users/signup">
                 회원가입(+2000)
               </Nav.Link>
             </Nav.Item>
@@ -68,7 +74,7 @@ class HeaderComponent extends Component {
               </Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link as={NavLink} to="/account/login">
+              <Nav.Link as={NavLink} to="/login">
                 로그인
               </Nav.Link>
             </Nav.Item>

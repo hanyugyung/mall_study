@@ -26,6 +26,7 @@ class LoginComponent extends Component {
         if(res.rtCode == "A200000") {
           localStorage.setItem("id", res.rtData.userId);
           localStorage.setItem("token", res.rtData.token);
+          localStorage.setItem("name", res.rtData.userName);
           window.location.href = "/";
         }else{
           alert(res.rtMsg);

@@ -11,7 +11,7 @@ import FooterComponent from "./components/FooterComponent.js";
 import CsComponent from "./components/cs/CsComponent";
 import LoginComponent from "./components/login/LoginComponent";
 import MyPageComponent from "./components/users/MyPageComponent";
-
+import itemDetailComponent from "./components/item/itemDetailComponent"
 //소녀나라 참고
 class App extends Component {
   render() {
@@ -26,8 +26,9 @@ class App extends Component {
           <Route path="/cs" component={CsComponent} />
           <Route path="/login" component={LoginComponent} />
           <Route exact path="/" component={MainComponent} />
+          <Route path="/item/:prodcode/info" component={itemDetailComponent} />
           <Switch>
-            <Route path="/item/:type" component={MainComponent} />
+            <Route exact path="/item/:type" component={MainComponent} />
           </Switch>
 {
   /*

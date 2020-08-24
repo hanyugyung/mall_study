@@ -52,7 +52,7 @@ class MainComponent extends Component {
             </Carousel.Caption>
           </Carousel.Item>
         </Carousel>
-        
+
         <ITEMS itemType = {this.props.match.params.type}></ITEMS>
       </div>
     );

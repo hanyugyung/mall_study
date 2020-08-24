@@ -4,13 +4,27 @@ import FormControl from "react-bootstrap/FormControl";
 import InputGroup from "react-bootstrap/InputGroup";
 import Nav from "react-bootstrap/Nav";
 import { NavLink } from "react-router-dom";
+import * as commonService from "../service/commonService";
 
 class TopMainComponent extends Component {
   constructor(props) {
     super(props);
     
     this.state = {};
+
+    // 메뉴 렌더링
+    this.makeMenuComponent = this.makeMenuComponent.bind();
   }
+  
+  componentWillMount = async() => {
+//    const menuList = await commonService.getItemList();
+//    this.makeMenuComponent(menuList);
+  }
+
+  makeMenuComponent = (data) => {
+    console.log(data);
+  }
+
   render() {
     return (
       //span 과 div 차이
@@ -38,59 +52,60 @@ class TopMainComponent extends Component {
               <InputGroup.Text id="basic-addon2">검색</InputGroup.Text>
             </InputGroup.Append>
           </InputGroup>
+          { /* 여기는 db데이터로 바꾸자 */}
           <Nav className="top-main-component-nav">
             <Nav.Item>
-              <Nav.Link as={NavLink} to="/item/outer">
+              <Nav.Link as={NavLink} to="/item/OC">
                 아우터
               </Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link as={NavLink} to="/item/tops">
+              <Nav.Link as={NavLink} to="/item/TC">
                 상의
               </Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link as={NavLink} to="/item/shirts">
+              <Nav.Link as={NavLink} to="/item/OC">
                 셔츠/블라우스
               </Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link as={NavLink} to="/item/trainings">
+              <Nav.Link as={NavLink} to="/item/OC">
                 트레이닝
               </Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link as={NavLink} to="/item/basics">
+              <Nav.Link as={NavLink} to="/item/OC">
                 베이직
               </Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link as={NavLink} to="/item/onepieces">
+              <Nav.Link as={NavLink} to="/item/OC">
                 원피스
               </Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link as={NavLink} to="/item/skirts">
+              <Nav.Link as={NavLink} to="/item/OC">
                 스커트
               </Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link as={NavLink} to="/item/pants">
+              <Nav.Link as={NavLink} to="/item/OC">
                 팬츠
               </Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link as={NavLink} to="/item/bags">
+              <Nav.Link as={NavLink} to="/item/OC">
                 가방
               </Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link as={NavLink} to="/item/shoeses">
+              <Nav.Link as={NavLink} to="/item/OC">
                 신발
               </Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link as={NavLink} to="/item/accs">
+              <Nav.Link as={NavLink} to="/item/OC">
                 악세사리
               </Nav.Link>
             </Nav.Item>

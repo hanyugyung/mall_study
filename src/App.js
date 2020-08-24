@@ -26,7 +26,7 @@ class App extends Component {
           <Route path="/cs" component={CsComponent} />
           <Route path="/login" component={LoginComponent} />
           <Route exact path="/" component={MainComponent} />
-          <Route path="/item/:prodcode/info" component={itemDetailComponent} />
+          <Route path="/item/:prodcode/info" component={itemDetailComponent} /> 
           <Switch>
             <Route exact path="/item/:type" component={MainComponent} />
           </Switch>

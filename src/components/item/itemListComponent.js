@@ -21,11 +21,11 @@ class itemListComponent extends Component {
 
     getProductList = async(prodCode) => {
         const items = await itemService.getProductList(prodCode);
-        this.makeItemViewData(items);
+        this.makeItemViewData(items.data);
     } 
 
-    makeItemViewData = (data) => {
-        let itemData = data.data;
+    makeItemViewData = (result) => {
+        let itemData = result.data;
         let joinData = new Array();
         for(let key in itemData) {
             joinData.push(

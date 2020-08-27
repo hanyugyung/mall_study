@@ -24,3 +24,41 @@
 .item_price { margin-top: -7px; }
 .item_cost_price { color: #7e7e7e; font-size: 10px; font-weight: 700; text-decoration: line-through; }
 .item_sell_price { color: #2e2e2e; font-size: 12px; font-weight: 700; margin-left: 9px;}
+
+.item_detail { width: 100%; height: 400px;}
+.item_detail_main_left { width: 500px; height: 400px; position: absolute;}
+.item_detail_main_left img {position: absolute; top:40px; left: 5%; width: 90%; height: 90%;}
+.item_detail_main_right { width: 450px; float: right;}
+
+.item_order {margin-top: 40px; border-top: 4px solid #353535;}
+.item_order .payment { position: relative; float: right; }
+
+.item_order_info {
+    display: block;
+    min-height: 30px;
+    padding: 10px 0 10px 9px;
+    font-size: 16px;
+    line-height: 25px;
+    letter-spacing: -0.02em;
+    text-align: left;
+    overflow: hidden;
+    font-family: Verdana;
+    color: #333;
+}
+.item_order_info table {
+    border-top: 1px solid #239f48;
+    margin-top: 40px;
+    width: 100%;
+    font-size: 11px;
+}
+
+.item_order_info table .sell {
+    height: 60px;
+    border-bottom: 1px solid;
+}
+.item_order_info table .lines {
+    height: 10px;
+}
+
+.item_order_info table .warning { color: red; }
+

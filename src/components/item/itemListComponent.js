@@ -52,7 +52,7 @@ class itemListComponent extends Component {
     }
 
     itemDetail = (rowData) => {
-        window.location.href = "http://localhost:3000/item/" + rowData.prodCode + "/info";
+        window.location.href = "http://localhost:3000/" + this.props.itemType + "/item/info?prodcode=" + rowData.prodCode;
     }
 
     render() {

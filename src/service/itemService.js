@@ -15,12 +15,12 @@ export function getProductList(productCode) {
 }
 
 /* 상품 상세 정보 */
-export function getProductDetail(productCode) {
+export function getProductInfo(productCode) {
     return axios({
         method : 'get'
         , url : baseUrl +  'info'
         , params : {
-            productCode :productCode
+            prodCode :productCode
         }
     });
 }

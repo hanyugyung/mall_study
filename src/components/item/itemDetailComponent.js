@@ -8,6 +8,8 @@ class itemDetailComponent extends Component {
         this.state = {
             prodInfo : ""
             , imageData : []
+            , colorData : []
+            , sizeData : []
             , beforeProdCode : ""
         }
         this.getProdInfoDataList = this.getProdInfoDataList.bind();
@@ -17,13 +19,14 @@ class itemDetailComponent extends Component {
     getProdInfoDataList = async() => {
         const prodCode = new URLSearchParams(this.props.location.search).get("prodcode");
         const items = await itemService.getProductInfo(prodCode);
-
         this.makeProdInfoView(items, prodCode);
     }
 
     makeProdInfoView = (result, prodCode) => {
         let prodDetailInfo = result.data.data;
         let prodDetailImageData = result.data.listData;
+        let prodColorList = result.data.colorList;
+        let prodSizeList = result.data.sizeList;
         let joinData = new Array();
 
         for(let key in prodDetailImageData) {
@@ -37,12 +40,15 @@ class itemDetailComponent extends Component {
 
         this.setState({
             prodInfo : prodDetailInfo
-          , imageData : joinData
+            , colorData : prodColorList
+            , sizeData : prodSizeList
+            , imageData : joinData
           , beforeProdCode : prodCode
         });
     }
 
     render() {
+        console.log(this.state.prodInfo);
         if(new URLSearchParams(this.props.location.search).get("prodcode") != this.state.beforeProdCode) {
             this.getProdInfoDataList(this.props.itemType)
         }
@@ -53,7 +59,7 @@ class itemDetailComponent extends Component {
                             <img src={"http://localhost:8080" + this.state.prodInfo.prodMasterImagePath + "/" + this.state.prodInfo.prodMasterImageName}></img>
                         </div>
                         <div className="item_detail_main_right">
-                           <ORDER prodData = {this.state.prodInfo}></ORDER>
+                           <ORDER prodInfo = {this.state.prodInfo} prodColor = {this.state.colorData} prodSize = {this.state.sizeData}></ORDER>
                         </div>
                     </div>
                 <div>

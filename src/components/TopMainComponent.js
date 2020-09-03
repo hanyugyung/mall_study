@@ -3,27 +3,27 @@ import { Container } from "react-bootstrap";
 import FormControl from "react-bootstrap/FormControl";
 import InputGroup from "react-bootstrap/InputGroup";
 import Nav from "react-bootstrap/Nav";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import * as commonService from "../service/commonService";
 
 class TopMainComponent extends Component {
   constructor(props) {
     super(props);
-    
+
     this.state = {};
 
     // 메뉴 렌더링
     this.makeMenuComponent = this.makeMenuComponent.bind();
   }
-  
-  componentWillMount = async() => {
-//    const menuList = await commonService.getItemList();
-//    this.makeMenuComponent(menuList);
-  }
+
+  componentWillMount = async () => {
+    //    const menuList = await commonService.getItemList();
+    //    this.makeMenuComponent(menuList);
+  };
 
   makeMenuComponent = (data) => {
     console.log(data);
-  }
+  };
 
   render() {
     return (
@@ -40,7 +40,11 @@ class TopMainComponent extends Component {
         }}
       >
         <Container>
-          <h1 className="text-center">Shopping Mall</h1>
+          <h1 className="text-center">
+            <Link to="/" style={{ color: "black" }}>
+              Shopping Mall
+            </Link>
+          </h1>
           <p className="text-center">REACT study 2020</p>
           <InputGroup className="mb-3">
             <FormControl
@@ -52,7 +56,7 @@ class TopMainComponent extends Component {
               <InputGroup.Text id="basic-addon2">검색</InputGroup.Text>
             </InputGroup.Append>
           </InputGroup>
-          { /* 여기는 db데이터로 바꾸자 */}
+          {/* 여기는 db데이터로 바꾸자 */}
           <Nav className="top-main-component-nav">
             <Nav.Item>
               <Nav.Link as={NavLink} to="/item/OC">

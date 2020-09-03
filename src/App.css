@@ -1,74 +1,78 @@
-a.nav-link{
-    color: black;
+a.nav-link {
+  color: black;
 }
 
-div.top-main-component-nav 
-a.nav-link:hover{
-    background-color: #FE9A2E;
-    color: white;
-    font-weight: bold; 
+div.top-main-component-nav a.nav-link:hover {
+  background-color: #fe9a2e;
+  color: white;
+  font-weight: bold;
 }
 
-a.nav-link:hover{
-    color: black; 
+a.nav-link:hover {
+  color: black;
 }
 
 /* header와 footer 영역을 제외한 영역에 해당 */
-div.sub-page{
-    margin-top: 100px;
-    margin-bottom: 100px;
+div.sub-page {
+  margin-top: 100px;
+  margin-bottom: 100px;
 }
 
 /* 버튼 두개가 묶여 있을 때 두번째 버튼과 첫번째 버튼 사이의 마진 */
-button.second{
-    margin-left: 10px;
+button.second {
+  margin-left: 10px;
 }
 
 /* 프로젝트 기본 핑크 버튼 색과 크기 및 모양 */
-button.basic-button{
-    border: none;
-    color: white;
-    background: #FE9A2E;
-    border-radius: 12px;
-    width: 180px;
-    height: 50px;
+button.basic-button {
+  border: none;
+  color: white;
+  background: #fe9a2e;
+  border-radius: 12px;
+  width: 180px;
+  height: 50px;
 }
 
 /* 프로젝트 기본 그레이 버튼 색과 크기 및 모양 */
-button.basic-grey-button{
-    border: 1px solid #BDBDBD;
-    color: #BDBDBD;
-    background: white;
-    border-radius: 12px;
-    width: 180px;
-    height: 50px;
+button.basic-grey-button {
+  border: 1px solid #bdbdbd;
+  color: #bdbdbd;
+  background: white;
+  border-radius: 12px;
+  width: 180px;
+  height: 50px;
 }
 
 /* 회원가입 메인 상단 텍스트 */
-h2.sign-up-main-text{
-    color: #FE9A2E;
-    font-size: 3em;
+h2.sign-up-main-text {
+  color: #fe9a2e;
+  font-size: 3em;
 }
 /* 회원가입 form 영역 */
-div.join-us-form-aria{
-    padding-left: 250px;
-    padding-right: 250px;
-    padding-top: 10px;
+div.join-us-form-aria {
+  padding-left: 250px;
+  padding-right: 250px;
+  padding-top: 10px;
 }
 /* 회원가입 첫번째 form row top 줄 */
-div.form-group-row-top-aria{
-    border-top: 2px solid #525151;
-    padding-top: 20px;
+div.form-group-row-top-aria {
+  border-top: 2px solid #525151;
+  padding-top: 20px;
 }
 
 /* 회원가입 마지막 입력칸 form row 바닥줄 */
-div.form-group-row-bottom-aria{
-    border-bottom: 1px solid #525151;
-    padding-bottom: 30px;
+div.form-group-row-bottom-aria {
+  border-bottom: 1px solid #525151;
+  padding-bottom: 30px;
 }
 
 /* 로그인 form 영역 */
-div.login-form-aria{
-    padding-left: 100px;
-    padding-right: 100px;
+div.login-form-aria {
+  padding-left: 100px;
+  padding-right: 100px;
+}
+/* 상품상세정보 셀렉트박스(콤보박스) 디자인 */
+.item_order select {
+  width: 100px;
+  font-size: 20px;
 }

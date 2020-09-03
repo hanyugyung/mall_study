@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
-import "./css/product.css"
+import "./css/product.css";
 import MainComponent from "./components/MainComponent";
 import HeaderComponent from "./components/HeaderComponent";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
@@ -11,7 +11,8 @@ import FooterComponent from "./components/FooterComponent.js";
 import CsComponent from "./components/cs/CsComponent";
 import LoginComponent from "./components/login/LoginComponent";
 import MyPageComponent from "./components/users/MyPageComponent";
-import itemDetailComponent from "./components/item/itemDetailComponent"
+import itemListComponent from "./components/item/itemListComponent";
+import itemDetailComponent from "./components/item/itemDetailComponent";
 //소녀나라 참고
 class App extends Component {
   render() {
@@ -26,12 +27,11 @@ class App extends Component {
           <Route path="/cs" component={CsComponent} />
           <Route path="/login" component={LoginComponent} />
           <Route exact path="/" component={MainComponent} />
-          <Route path="/:type/item/info" component={itemDetailComponent} /> 
+          <Route path="/:type/item/info" component={itemDetailComponent} />
           <Switch>
-            <Route exact path="/item/:type" component={MainComponent} />
+            <Route exact path="/item/:type" component={itemListComponent} />
           </Switch>
-{
-  /*
+          {/*
           <Route path="/item/tops" component={MainComponent} />
           <Route path="/item/shirts" component={MainComponent} />
           <Route path="/item/trainings" component={MainComponent} />
@@ -42,8 +42,7 @@ class App extends Component {
           <Route path="/item/bags" component={MainComponent} />
           <Route path="/item/shoeses" component={MainComponent} />
           <Route path="/item/accs" component={MainComponent} />
-          */
-}
+          */}
           <FooterComponent />
         </Router>
       </>

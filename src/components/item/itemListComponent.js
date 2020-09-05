@@ -4,6 +4,7 @@ import * as itemService from "../../service/itemService";
 class itemListComponent extends Component {
     constructor(props) {
         super(props);
+
         this.state = {
             itemData : []
             , beforeItemType: ""
@@ -45,10 +46,12 @@ class itemListComponent extends Component {
             );
         }
 
-        this.setState({
-            itemData : joinData
-            ,beforeItemType : this.props.itemType
-        });
+        if(typeof this.props.match != "undefined") {
+            this.setState({
+                itemData : joinData
+                ,beforeItemType : this.props.match.params.type
+            });
+        }
     }
 
     itemDetail = (rowData) => {
@@ -56,8 +59,10 @@ class itemListComponent extends Component {
     }
 
     render() {
-        if(this.props.itemType != this.state.beforeItemType) {
-            this.getProductList(this.props.itemType)
+        if(typeof this.props.match != "undefined") {
+            if(this.props.match.params.type != this.state.beforeItemType) {
+                this.getProductList(this.props.match.params.type)
+            }
         }
         return (
             <div className="container">

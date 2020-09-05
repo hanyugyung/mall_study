@@ -53,7 +53,10 @@ class MainComponent extends Component {
           </Carousel.Item>
         </Carousel>
 
-        <ITEMS itemType = {this.props.match.params.type}></ITEMS>
+      {
+        /* 여기는 bestItem component를 새로 만들어야 할 듯 */
+      }
+        <ITEMS></ITEMS>
       </div>
     );
   }

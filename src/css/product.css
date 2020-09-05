@@ -25,13 +25,17 @@
 .item_cost_price { color: #7e7e7e; font-size: 10px; font-weight: 700; text-decoration: line-through; }
 .item_sell_price { color: #2e2e2e; font-size: 12px; font-weight: 700; margin-left: 9px;}
 
-.item_detail { width: 100%; height: 400px;}
+.item_detail { width: 100%; height: 700px;}
 .item_detail_main_left { width: 500px; height: 400px; position: absolute;}
 .item_detail_main_left img {position: absolute; top:40px; left: 5%; width: 90%; height: 90%;}
-.item_detail_main_right { width: 450px; float: right;}
+.item_detail_main_right { width: 450px; float: right; height: 530px;}
 
 .item_order {margin-top: 40px; border-top: 4px solid #353535;}
-.item_order .payment { position: relative; float: right; }
+.item_order .payment { position: relative; float: right; padding-top: 18px; }
+.item_order .payment .right{ float: right; }
+.item_order .payment span {margin-left: 40px;}
+.item_order select {width: 100%; font-size: 10px;}
+.btn_area { padding-top: 30px; }
 
 .item_order_info {
     display: block;
@@ -46,7 +50,7 @@
     color: #333;
 }
 .item_order_info table {
-    border-top: 1px solid #239f48;
+    border-top: 1px solid #353535;
     margin-top: 40px;
     width: 100%;
     font-size: 11px;
@@ -62,3 +66,18 @@
 
 .item_order_info table .warning { color: red; } 
 
+
+.item_choice_info { font-size: 11px; color: #353535; height: 150px; overflow: auto;}
+.item_choice_info .option{ font-size: 10px; color: #959595;}
+
+.item_choice_info .order_count_area {position: absolute; width: 100%;}
+.item_choice_info .order_count_area .order_left{float: left; width: 50%;}
+.item_choice_info .order_count_area .order_right{position:relative; float: right; width: 50%; top: -3px;}
+
+.item_choice_info .order_count {font-size: 10px; width: 40px; text-align: right;}
+.item_choice_info .order_btn {width: 21px; height: 11px; cursor: pointer;}
+
+
+.item_order_price_area {position: relative; float: left;}
+.item_order_price_area .del{float: right; padding-left: 23px;}
+.item_order_price { float: left;}

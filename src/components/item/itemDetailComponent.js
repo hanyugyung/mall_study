@@ -48,7 +48,6 @@ class itemDetailComponent extends Component {
     }
 
     render() {
-        console.log(this.state.prodInfo);
         if(new URLSearchParams(this.props.location.search).get("prodcode") != this.state.beforeProdCode) {
             this.getProdInfoDataList(this.props.itemType)
         }

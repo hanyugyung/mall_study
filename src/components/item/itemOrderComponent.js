@@ -1,4 +1,5 @@
 import React, { Component} from "react";
+import * as itemService from "../../service/itemService";
 
 
 class itemOrderComponent extends Component {
@@ -19,6 +20,8 @@ class itemOrderComponent extends Component {
         this.getSizeList = this.getSizeList.bind();             // size select box
         this.addProductList = this.addProductList.bind();       // 선택한 상품 리스트
         this.orderCountHandler = this.orderCountHandler.bind(); // 수량 증가 이벤트
+        this.addCart = this.addCart.bind();
+        this.addOrder = this.addOrder.bind();
     }
 
     getColorList = () => {
@@ -32,15 +35,19 @@ class itemOrderComponent extends Component {
     }
 
     getSizeList = (event) => {
-        let color = event.target.value;
         let sizeArr = new Array();
-
+        let idx = 0;
         for(let key in this.props.prodSize) {
-            if(this.props.prodSize[key].prodColorCd === color) {
-                sizeArr.push(
-                    <option key={this.props.prodSize[key].prodSize} value={this.props.prodSize[key].prodSize}>({color}) {this.props.prodSize[key].prodSize}</option>
-                )
+            if(this.props.prodSize[key].prodColorCd === event.target.value) {
+                let size = new Object();
+
+                size.value = this.props.prodSize[key].prodSize;
+                size.title = this.props.prodSize[key].prodSize;
+                size.remainingAmount = this.props.prodSize[key].remainingAmount;
+
+                sizeArr.push(size);
             }
+
         }
 
         this.prodSizeRefs.current.value = "";   // size selectbox 초기화
@@ -133,6 +140,38 @@ class itemOrderComponent extends Component {
         });
     }
 
+    addCart = async() => {
+        if(this.state.choiceItemObject.length == 0 ) {
+            alert("장바구니에 담을 상품이 존재하지 않습니다.");
+            return;
+        }
+
+//        if(sessionStorage.getItem("token") == "" || sessionStorage.getItem("token") == null) {
+//            if(window.confirm("사용자 로그인이 되어있지 않습니다. 로그인 페이지로 이동하시겠습니까?")){
+                // 로그인 페이지로 이동
+//            } else {
+//                
+//            }
+//        }
+
+
+        let rt = await itemService.postCart(this.props.prodInfo.prodCode, this.state.totalOrderPrice, this.state.totalOrderCount, this.state.choiceItemObject);
+        if(rt.data.rtCode == "A200000") {
+            alert("장바구니에 저장되었습니다.");
+        } else {
+            alert("서버와의 통신에 실패하였습니다. 잠시 후 다시 시도해 주십시오.");         
+        }
+    }
+    
+    addOrder = () => {
+        if(this.state.choiceItemObject.length == 0 ) {
+            alert("주문할 상품이 존재하지 않습니다.");
+            return;
+        }
+
+        
+        alert('add Order');
+    }
     render() {
         return (
             <div className="item_order">
@@ -158,9 +197,13 @@ class itemOrderComponent extends Component {
                             <tr>
                                 <td>size</td>
                                 <td>
-                                    <select ref={this.prodSizeRefs} className="form-control select_style" onChange={this.addProductList}>
+                                    <select ref={this.prodSizeRefs} className="form-control select_item_size" onChange={this.addProductList}>
                                         <option value="">[필수] 옵션을 선택해주세요.</option>
-                                        {this.state.sizeOptions}
+                                        {
+                                            this.state.sizeOptions.map((item, index) => (
+                                                item.remainingAmount == 0?<option key={index} value={item.value} className="disalbed" disabled>{item.title} (품절)</option>:<option key={index} value={item.value} className="disalbed">{item.title}</option>
+                                            ))
+                                        }
                                     </select>
                                 </td>
                             </tr>
@@ -223,10 +266,10 @@ class itemOrderComponent extends Component {
                 <div className="container">
                     <div className="row btn_area">
                         <div className="col-6">
-                            <button type="button" className="btn btn-dark btn-block">Cart</button>
+                            <button type="button" className="btn btn-dark btn-block" onClick={this.addCart}>Cart</button>
                         </div>
                         <div className="col-6">
-                            <button type="button" className="btn btn-success btn-block">BUY</button>
+                            <button type="button" className="btn btn-success btn-block" onClick={this.addOrder}>BUY</button>
                         </div>
                     </div>
                 </div>

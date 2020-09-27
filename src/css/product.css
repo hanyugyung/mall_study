@@ -35,6 +35,7 @@
 .item_order .payment .right{ float: right; }
 .item_order .payment span {margin-left: 40px;}
 .item_order select {width: 100%; font-size: 10px;}
+.item_order select .disalbed { text-decoration: underline; color: red;}
 .btn_area { padding-top: 30px; }
 
 .item_order_info {

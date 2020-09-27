@@ -12,21 +12,20 @@ class SignupComponent2 extends Component {
     this.state = {};
   }
   userSignUPHandler(e) {
-    if (e.target.accountPw.value !== e.target.accountPwChk.value) {
+    if (e.target.password.value !== e.target.passwordCheck.value) {
       alert("비밀번호를 다시 확인해주세요.");
     } else {
       axios({
         data: {
-          accountAddress: e.target.accountAddress.value,
-          accountBirth: e.target.accountBirth.value,
-          accountContactNumber: e.target.accountContactNumber.value,
-          accountEmail: e.target.accountEmail.value,
-          accountId: e.target.accountId.value,
-          accountName: e.target.accountName.value,
-          accountPw: e.target.accountPw.value,
+          userBirth: e.target.userBirth.value,
+          phoneNumber: e.target.phoneNumber.value,
+          email: e.target.email.value,
+          loginId: e.target.loginId.value,
+          name: e.target.name.value,
+          password: e.target.password.value,
         },
         method: "post",
-        url: PROPTERTIES.getBackendUrl() + "/v1/api/account/create",
+        url: "http://localhost:8080/v1/api/user/signUp",
         headers: { "content-type": "application/json" },
       })
         .then((response) => {
@@ -69,8 +68,8 @@ class SignupComponent2 extends Component {
                   <Col sm={10}>
                     <Form.Control
                       type="text"
-                      id="accountId"
-                      placeholder="4-20자: 영문 소문자, 숫자조합"
+                      id="loginId"
+                      placeholder="히히placeholder 입니다"
                     />
                   </Col>
                 </Form.Group>
@@ -81,7 +80,7 @@ class SignupComponent2 extends Component {
                   <Col sm={10}>
                     <Form.Control
                       type="password"
-                      id="accountPw"
+                      id="password"
                       placeholder="6-20자: 영문,숫자,특수문자조합"
                     />
                   </Col>
@@ -93,7 +92,7 @@ class SignupComponent2 extends Component {
                   <Col sm={10}>
                     <Form.Control
                       type="password"
-                      id="accountPwChk"
+                      id="passwordCheck"
                       placeholder="6-20자: 영문,숫자,특수문자조합"
                     />
                   </Col>
@@ -103,7 +102,7 @@ class SignupComponent2 extends Component {
                     이름
                   </Form.Label>
                   <Col sm={10}>
-                    <Form.Control type="text" id="accountName" />
+                    <Form.Control type="text" id="name" />
                   </Col>
                 </Form.Group>
                 <Form.Group as={Row}>
@@ -113,8 +112,8 @@ class SignupComponent2 extends Component {
                   <Col sm={10}>
                     <Form.Control
                       type="text"
-                      id="accountContactNumber"
-                      placeholder="-빼고 입력"
+                      id="phoneNumber"
+                      placeholder="010-xxxx-xxxx"
                     />
                   </Col>
                 </Form.Group>
@@ -125,8 +124,8 @@ class SignupComponent2 extends Component {
                   <Col sm={10}>
                     <Form.Control
                       type="text"
-                      id="accountBirth"
-                      placeholder="주민번호앞6자리"
+                      id="userBirth"
+                      placeholder="yyyyMMdd 주민번호앞6자리"
                     />
                   </Col>
                 </Form.Group>
@@ -137,20 +136,8 @@ class SignupComponent2 extends Component {
                   <Col sm={10}>
                     <Form.Control
                       type="email"
-                      id="accountEmail"
-                      placeholder="타사이트이메일"
-                    />
-                  </Col>
-                </Form.Group>
-                <Form.Group as={Row} className="form-group-row-bottom-aria">
-                  <Form.Label column sm={2}>
-                    **주소
-                  </Form.Label>
-                  <Col sm={10}>
-                    <Form.Control
-                      type="text"
-                      id="accountAddress"
-                      placeholder="주소인데 주소플러그인예정?"
+                      id="email"
+                      placeholder="이메일을입력해주세욤"
                     />
                   </Col>
                 </Form.Group>

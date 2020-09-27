@@ -18,7 +18,7 @@ class LoginComponent extends Component {
         passWord: e.target.passWord.value,
       },
       method: "post",
-      url: PROPTERTIES.getBackendUrl() + "/v1/api/user/login",
+      url: "http://localhost:8080/v1/api/user/login",
       headers: { "content-type": "application/json" },
     })
       .then((response) => {

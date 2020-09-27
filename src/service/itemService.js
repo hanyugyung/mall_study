@@ -3,7 +3,7 @@ import qs from 'qs';
 
 const baseUrl = "http://localhost:8080/v1/api";
 
-// 상품 리스트 조회
+// 상품 리스트 조회 - git test
 export function getProductList(productCode) {
     return axios({
        method : 'get'

@@ -52,6 +52,11 @@ class HeaderComponent extends Component {
               </Nav.Link>
             </Nav.Item>
             <Nav.Item>
+              <Nav.Link as={NavLink} to="/stat">
+                통계
+              </Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
               <Nav.Link as={NavLink} to="#" onClick={this.getLogout}>
                 로그아웃
               </Nav.Link>
@@ -71,6 +76,11 @@ class HeaderComponent extends Component {
             <Nav.Item>
               <Nav.Link as={NavLink} to="/cs">
                 고객센터
+              </Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link as={NavLink} to="/stat">
+                통계
               </Nav.Link>
             </Nav.Item>
             <Nav.Item>

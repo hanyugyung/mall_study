@@ -5,6 +5,7 @@ import axios from "axios";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import * as PROPTERTIES from "../../Properties";
+import * as RTCODE from "../../RtCode";
 
 class SignupComponent2 extends Component {
   constructor(props) {
@@ -20,17 +21,17 @@ class SignupComponent2 extends Component {
           userBirth: e.target.userBirth.value,
           phoneNumber: e.target.phoneNumber.value,
           email: e.target.email.value,
-          loginId: e.target.loginId.value,
+          userId: e.target.userId.value,
           name: e.target.name.value,
           password: e.target.password.value,
         },
         method: "post",
-        url: "http://localhost:8080/v1/api/user/signUp",
+        url: PROPTERTIES.getBackendUrl("user") + "/signUp",
         headers: { "content-type": "application/json" },
       })
         .then((response) => {
           const res = response.data;
-          if(res.rtCode == "A200000") {
+          if(res.rtCode == RTCODE.RT_SUCCESS) {
             window.location.href = "/";
           }else{
             alert(res.rtMsg);
@@ -68,8 +69,8 @@ class SignupComponent2 extends Component {
                   <Col sm={10}>
                     <Form.Control
                       type="text"
-                      id="loginId"
-                      placeholder="히히placeholder 입니다"
+                      id="userId"
+                      placeholder="Login ID"
                     />
                   </Col>
                 </Form.Group>
@@ -102,7 +103,9 @@ class SignupComponent2 extends Component {
                     이름
                   </Form.Label>
                   <Col sm={10}>
-                    <Form.Control type="text" id="name" />
+                    <Form.Control 
+                      type="text" 
+                      id="name" />
                   </Col>
                 </Form.Group>
                 <Form.Group as={Row}>
@@ -125,7 +128,7 @@ class SignupComponent2 extends Component {
                     <Form.Control
                       type="text"
                       id="userBirth"
-                      placeholder="yyyyMMdd 주민번호앞6자리"
+                      placeholder="yyyy-MM-dd 주민번호앞6자리"
                     />
                   </Col>
                 </Form.Group>
@@ -137,7 +140,7 @@ class SignupComponent2 extends Component {
                     <Form.Control
                       type="email"
                       id="email"
-                      placeholder="이메일을입력해주세욤"
+                      placeholder="email"
                     />
                   </Col>
                 </Form.Group>

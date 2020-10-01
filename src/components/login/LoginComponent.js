@@ -4,6 +4,7 @@ import { Container } from "react-bootstrap";
 import axios from "axios";
 import Row from "react-bootstrap/Row";
 import * as PROPTERTIES from "../../Properties";
+import * as RTCODE from "../../RtCode";
 
 class LoginComponent extends Component {
   constructor(props) {
@@ -14,19 +15,19 @@ class LoginComponent extends Component {
   userLoginHandler(e) {
     axios({
       data: {
-        loginId: e.target.loginId.value,
-        passWord: e.target.passWord.value,
+        userId: e.target.userId.value,
+        password: e.target.passWord.value,
       },
       method: "post",
-      url: "http://localhost:8080/v1/api/user/login",
+      url: PROPTERTIES.getBackendUrl("user") + "/login",
       headers: { "content-type": "application/json" },
     })
       .then((response) => {
         const res = response.data;
-        if(res.rtCode == "A200000") {
-          localStorage.setItem("id", res.rtData.userId);
-          localStorage.setItem("token", res.rtData.token);
-          localStorage.setItem("name", res.rtData.userName);
+        if(res.rtCode == RTCODE.RT_SUCCESS) {
+          localStorage.setItem("userId", res.data.userId);
+          localStorage.setItem("token", res.data.token);
+          localStorage.setItem("uuid", res.data.uuid);
           window.location.href = "/";
         }else{
           alert(res.rtMsg);
@@ -52,7 +53,7 @@ class LoginComponent extends Component {
             >
               <div className="login-form-aria">
                 <Form.Group as={Row}>
-                  <Form.Control type="text" id="loginId" placeholder="아이디" />
+                  <Form.Control type="text" id="userId" placeholder="아이디" />
                 </Form.Group>
                 <Form.Group as={Row}>
                   <Form.Control

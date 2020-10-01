@@ -4,46 +4,48 @@ import { NavLink } from "react-router-dom";
 import axios from "axios";
 import { Container } from "react-bootstrap";
 import * as PROPTERTIES from "../Properties";
+import * as RTCODE from "../RtCode";
 
 class HeaderComponent extends Component {
   getLogout() {
     if (window.confirm("정말 로그아웃 하시는 건가요?")) {
       axios({
-        data: {
-          userId: localStorage.getItem("id"),
+        data : {
+          userId : localStorage.getItem("userId")
         },
-        method: "DELETE",
-        url:
-          PROPTERTIES.getBackendUrl() +
-          "/v1/api/user/logout?userId=" +
-          localStorage.getItem("id"),
-        headers: { "content-type": "application/json" },
+        method: "post",
+        url: PROPTERTIES.getBackendUrl("user") + "/logout",
+        headers: { 
+          "content-type": "application/json",
+          "X-BACKEND-TOKEN" : localStorage.getItem("token")
+        },
       })
-        .then((response) => {
-          if (response.status === 200) {
-            localStorage.removeItem("id");
-            localStorage.removeItem("token");
-            localStorage.removeItem("name");
-            window.location.href = "/";
-          } else {
-            alert("LOGOUT EXCEPTION!!!");
-          }
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
+      .then((response) => {
+        const res = response.data;
+        if(res.rtCode == RTCODE.RT_SUCCESS) {
+          localStorage.removeItem("userId");
+          localStorage.removeItem("token");
+          localStorage.removeItem("uuid");
+          window.location.href = "/";
+        }else{
+          alert(res.rtMsg);
+        }
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
     } else {
       //취소버튼 눌렀기 때문에 아무것도 실행되지 않음
     }
   }
   render() {
-    if (localStorage.getItem("id") != null) {
+    if (localStorage.getItem("uuid") != null) {
       return (
         <Container>
           <Nav className="justify-content-end">
             <Nav.Item>
               <Nav.Link as={NavLink} to="/users/mypage">
-                {localStorage.getItem("name")} 님 안녕하세요!
+                {localStorage.getItem("userId")} 님 안녕하세요!
               </Nav.Link>
             </Nav.Item>
             <Nav.Item>

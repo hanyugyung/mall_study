@@ -14,6 +14,7 @@ import LoginComponent from "./components/login/LoginComponent";
 import MyPageComponent from "./components/users/MyPageComponent";
 import itemListComponent from "./components/item/itemListComponent";
 import itemDetailComponent from "./components/item/itemDetailComponent";
+import ItemAddComponent from "./components/item/itemAddComponent";
 //소녀나라 참고
 class App extends Component {
   render() {
@@ -27,6 +28,7 @@ class App extends Component {
           <Route path="/users/signup2" component={SignupComponent2} />
           <Route path="/cs" component={CsComponent} />
           <Route path="/stat" component={StatComponent} />
+          <Route path="/addItem" component={ItemAddComponent} />
           <Route path="/login" component={LoginComponent} />
           <Route exact path="/" component={MainComponent} />
           <Route path="/:type/item/info" component={itemDetailComponent} />

@@ -1,0 +1,44 @@
+.container{
+    margin: 0 4rem;
+    background:yellow;
+}
+.title{
+    border-bottom:1px solid black;
+}
+.title > p{
+    font-size: 2rem;
+    margin-bottom: 0;
+}
+.sub_box{
+    margin:10px 0;
+}
+.row_box{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.row_box_category{
+    border: 1px solid black;
+    width:30%;
+    height:14rem;
+    margin: 0 0.5rem;
+    overflow:auto;
+}
+.row_box_image{
+    border: 1px solid black;
+    width:30%;
+    height:14rem;
+    margin: 0 0.5rem;
+    overflow:auto;
+}
+.sub_box{
+    display:flex;
+    flex-direction: row;
+    border-bottom: 1px solid black;
+}
+.sub_box_title{
+    width:30%;
+}
+.sub_box_content{
+    width:70%;
+}

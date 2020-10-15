@@ -10,30 +10,30 @@ class HeaderComponent extends Component {
   getLogout() {
     if (window.confirm("정말 로그아웃 하시는 건가요?")) {
       axios({
-        data : {
-          userId : localStorage.getItem("userId")
+        data: {
+          userId: localStorage.getItem("userId")
         },
         method: "post",
         url: PROPTERTIES.getBackendUrl("user") + "/logout",
-        headers: { 
+        headers: {
           "content-type": "application/json",
-          "X-BACKEND-TOKEN" : localStorage.getItem("token")
+          "X-BACKEND-TOKEN": localStorage.getItem("token")
         },
       })
-      .then((response) => {
-        const res = response.data;
-        if(res.rtCode == RTCODE.RT_SUCCESS) {
-          localStorage.removeItem("userId");
-          localStorage.removeItem("token");
-          localStorage.removeItem("uuid");
-          window.location.href = "/";
-        }else{
-          alert(res.rtMsg);
-        }
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+        .then((response) => {
+          const res = response.data;
+          if (res.rtCode == RTCODE.RT_SUCCESS) {
+            localStorage.removeItem("userId");
+            localStorage.removeItem("token");
+            localStorage.removeItem("uuid");
+            window.location.href = "/";
+          } else {
+            alert(res.rtMsg);
+          }
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
     } else {
       //취소버튼 눌렀기 때문에 아무것도 실행되지 않음
     }
@@ -56,6 +56,11 @@ class HeaderComponent extends Component {
             <Nav.Item>
               <Nav.Link as={NavLink} to="/stat">
                 통계
+              </Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link as={NavLink} to="/addItem">
+                상품등록
               </Nav.Link>
             </Nav.Item>
             <Nav.Item>
@@ -83,6 +88,11 @@ class HeaderComponent extends Component {
             <Nav.Item>
               <Nav.Link as={NavLink} to="/stat">
                 통계
+              </Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link as={NavLink} to="/addItem">
+                상품등록
               </Nav.Link>
             </Nav.Item>
             <Nav.Item>

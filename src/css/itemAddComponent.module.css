@@ -42,3 +42,15 @@
 .sub_box_content{
     width:70%;
 }
+/*상품이미지*/
+.row_box_image_thumbnali{
+    border-bottom:1px solid black;
+    height:80%;
+}
+.row_box_image_add{
+    cursor: pointer;
+}
+.row_box_image_add > p > span{
+    float:right;
+    margin:0 5px;
+}
